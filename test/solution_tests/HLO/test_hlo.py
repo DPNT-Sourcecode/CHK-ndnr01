@@ -1,8 +1,8 @@
-from solutions.HLO import hlo_solution
+from solutions.HLO import hello_solution
 
 class TestSum():
-    def test_sum_set_1(self):
-        assert hlo_solution.compute(1, 2) == 3
-        
-    def test_sum_set_2(self):
-        assert hlo_solution.compute(10, 20) == 30
+    
+    def test_hello_friend(self):
+        assert hello_solution.hello("John") == "Hello, John!"
+
+
