@@ -7,5 +7,3 @@ class TestSum():
         
     def test_sum_set_2(self):
         assert sum_solution.compute(10, 20) == 30
-
-
