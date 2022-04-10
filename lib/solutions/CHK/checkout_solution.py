@@ -41,10 +41,9 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             # Special Offer A
             if item == "A":
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
-                        # Special Offer E
-
+            # Special Offer E
             elif item == "E":
-                calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
             # Special Offer B
             elif item == "B":
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
@@ -78,15 +77,19 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
     This assumes that if B alread in inventory, then it will not be charged. If B not in inventory, it
     will be given as free rather than price of B being reduced from the final checkout value
     '''
-    number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
-    number_of_items_in_offer = number_of_items_in_inventory[item] // 2
-    return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
+    number_of_free_B_items= number_of_items_in_inventory[item] // 2
+    # If item B exists in inventory
+    if "B" in number_of_items_in_inventory:
+        number_of_items_of_B = number_of_items_in_inventory["B"] 
+        
+    return (number_of_items_in_inventory[item]*price_of_items[item])
 
 #============ IMPROVEMENTS=========#
 '''
 1. Rearchitecture the code into separate files etc
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
 
 
