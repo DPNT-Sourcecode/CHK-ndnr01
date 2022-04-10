@@ -38,15 +38,23 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     final_checkout_value = 0
     for item in number_of_items_in_inventory:    
         if item in price_of_items: # Checks if item is valid
-            # Special Offer A
+            # Special Offer A: 3A for 130
             if item == "A":
                 number_of_items_out_of_offer = number_of_items_in_inventory[item] % 3
                 number_of_items_in_offer = number_of_items_in_inventory[item] // 3
                 final_checkout_value = final_checkout_value + (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*130)
+            # Special Offer B: 2B for 45
             elif item == "B":
+                number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
+                number_of_items_in_offer = number_of_items_in_inventory[item] // 2
+                final_checkout_value = final_checkout_value + (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
+            # Special Offer E
+            elif item == "E":
                 number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
                 number_of_items_in_offer = number_of_items_in_inventory[item] // 2
                 final_checkout_value = final_checkout_value + (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
+def calculate_
