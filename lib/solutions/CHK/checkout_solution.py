@@ -8,7 +8,7 @@ def checkout(skus: str) -> int:
     @return: Total checkout value
     '''
     # Item price list
-    dict_of_items = {"A": 50, "B": 30, "C": 20, "D": 15}
+    price_of_items = {"A": 50, "B": 30, "C": 20, "D": 15}
     
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
@@ -22,13 +22,10 @@ def checkout(skus: str) -> int:
 #     ''' Check for illegal argument'''
 #     return skus[0].isalpha()
 
-def calculate_final_checkout_value(number_of_items_in_inventory: dict) -> int:
+def calculate_final_checkout_value(number_of_items_in_inventory: dict,
+                                   price_of_items: dict) -> int:
+    final_checkout_value = 0
     for item in number_of_items_in_inventory:
-        
+        if item in price_of_items:
+            
     
-
-
-
-
-
-
