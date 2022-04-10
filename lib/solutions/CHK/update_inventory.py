@@ -27,3 +27,10 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     for 6Fs
     '''
     return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
+
+def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
+    '''
+    3N get one M free
+    '''
+    return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
+
