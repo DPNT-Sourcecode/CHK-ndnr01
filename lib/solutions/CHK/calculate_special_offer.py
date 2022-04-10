@@ -38,3 +38,4 @@ def calculate_special_offer_for_H(item: str, number_of_items_in_inventory: dict,
     number_of_items_out_of_offer = number_of_items_not_in_offer_of_ten % 5
     return (number_of_items_in_offer_of_ten*80) + (number_of_items_in_offer_of_five*45) + (number_of_items_out_of_offer*price_of_items[item])
 
+def _calculate_single_offer()
