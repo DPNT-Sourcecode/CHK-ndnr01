@@ -8,7 +8,7 @@ def checkout(skus: str) -> int:
     @return: Total checkout value
     '''
     # Item price list
-    price_of_items = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
+    price_of_items = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40, "F": 10}
     
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
@@ -38,6 +38,9 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     final_checkout_value = 0
     if ("E" and "B") in number_of_items_in_inventory:
         number_of_items_in_inventory["B"] = update_number_of_B_items(number_of_items_in_inventory)
+    
+    if (number_of_items_in_inventory["F"] % 3) == 0:
+        number_of_items_in_inventory["F"] = update_number_of_F_items(number_of_items_in_inventory)
 
     for item in number_of_items_in_inventory:    
         if item in price_of_items: # Checks if item is valid
@@ -101,9 +104,7 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     2F gets another F free: Offer requires 3Fs in basket. On that basis, I am making an assumption
     that F needs to be in triplets for this offer to be valid. If there are 2/4 Fs then offer not applied and you just pay the usual price
     '''
-    number_of_F_items = number_of_items_in_inventory["F"]
-    if number_of_F_items >= 3:
-        return number_of_F_items - (number_of_F_items // 3)
+    return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
 
         
         
@@ -116,5 +117,6 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
 
