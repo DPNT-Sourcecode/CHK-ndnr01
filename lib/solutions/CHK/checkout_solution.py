@@ -43,9 +43,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
             # Special Offer E
             elif item == "E":
-                print(number_of_items_in_inventory)
                 final_checkout_value+=calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
-                print(number_of_items_in_inventory)            
             # Special Offer B
             elif item == "B":
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
@@ -68,9 +66,9 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
     '''
     2B for 45
     '''
+    print(number_of_items_in_inventory[item], item)
     number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
     number_of_items_in_offer = number_of_items_in_inventory[item] // 2
-    # Subtract the free Bs here before calc the value
     return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
 
 def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
@@ -108,4 +106,5 @@ checkout("ABCDEEE")
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
