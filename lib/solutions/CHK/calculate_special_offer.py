@@ -53,7 +53,7 @@ def calculate_special_offer_for_B(number_of_item: int, price_of_item: int) -> in
     
 def calculate_special_offer_for_K(number_of_item: int, price_of_item: int) -> int:
     '''
-    2K for 150
+    2K for 120
     '''
     return _calculate_single_offer(number_of_item= number_of_item, 
                             price_of_item= price_of_item, 
@@ -91,3 +91,4 @@ def _calculate_combined_offer(number_of_item: int, price_of_item: int, number_of
     number_of_items_out_of_offer = number_of_items_not_in_the_larger_offer % number_of_smaller_offer
     return (number_of_items_in_the_larger_offer*value_of_larger_offer) + (number_of_items_in_the_smaller_offer*value_of_smaller_offer) + (number_of_items_out_of_offer*price_of_item)
 #========================================================================================================#
+
