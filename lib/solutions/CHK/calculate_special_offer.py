@@ -91,4 +91,3 @@ def _calculate_combined_offer(number_of_item: int, price_of_item: int, number_of
     number_of_items_out_of_offer = number_of_items_not_in_the_larger_offer % number_of_smaller_offer
     return (number_of_items_in_the_larger_offer*value_of_larger_offer) + (number_of_items_in_the_smaller_offer*value_of_smaller_offer) + (number_of_items_out_of_offer*price_of_item)
 #========================================================================================================#
-

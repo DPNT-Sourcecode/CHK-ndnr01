@@ -49,4 +49,3 @@ def checkout(skus: str) -> int:
 3. Create config file.py to load all hardcoded values calclate_special offer and other modules
 3. Write unit tests for separated modules
 '''
-
