@@ -3,7 +3,7 @@ Validates inventory and calculates the final checkout value based on updated inv
 '''
 
 from solutions.CHK.update_inventory import update_number_of_B_items, update_number_of_F_items
-from solutions.CHK.calculate_special_offer import calculate_special_offer_for_A, calculate_special_offer_for_B, calculate_special_offer_for_E
+from solutions.CHK.calculate_special_offer import calculate_special_offer_for_A, calculate_special_offer_for_B, calculate_special_offer_for_K, calculate_special_offer_for_H
 
 def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
     '''
@@ -37,18 +37,17 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             elif item == "B": # Special Offer B
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
             elif item == "H":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_H(item, number_of_items_in_inventory, price_of_items)
             elif item == "K":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_K(item, number_of_items_in_inventory, price_of_items)
             elif item == "P":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_P(item, number_of_items_in_inventory, price_of_items)
             elif item == "Q":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_Q(item, number_of_items_in_inventory, price_of_items)
             elif item == "V":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
-            elif item == "B":
-                final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)            
+                final_checkout_value+=calculate_special_offer_for_V(item, number_of_items_in_inventory, price_of_items)           
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 

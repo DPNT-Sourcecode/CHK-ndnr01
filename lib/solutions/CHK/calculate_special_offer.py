@@ -27,12 +27,12 @@ def calculate_special_offer_for_H(item: str, number_of_items_in_inventory: dict,
 
 # ===========================SINGLE OFFERS========================# 
 
-def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
+def calculate_special_offer_for_B(number_of_item: int, price_of_item: int) -> int:
     '''
     2B for 45
     '''
-    _calculate_single_offer(number_of_item= number_of_items_in_inventory[item], 
-                            price_of_item= price_of_items, 
+    _calculate_single_offer(number_of_item= number_of_item, 
+                            price_of_item= price_of_item, 
                             number_of_items_for_offer=2, 
                             value_of_offer=45)
     
