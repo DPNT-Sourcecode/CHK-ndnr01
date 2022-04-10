@@ -4,7 +4,7 @@ Validates inventory and calculates the final checkout value based on updated inv
 
 from solutions.CHK.update_inventory import update_number_of_B_items, update_number_of_F_items, update_number_of_M_items, update_number_of_Q_items, update_number_of_U_items
 from solutions.CHK.calculate_special_offer import calculate_special_offer_for_A, calculate_special_offer_for_B, calculate_special_offer_for_K, calculate_special_offer_for_H, calculate_special_offer_for_P, calculate_special_offer_for_Q, calculate_special_offer_for_V
-from solutions.CHK.calculate_group_discount import calculate_group_discounts
+from solutions.CHK.calculate_group_discount import calculate_group_discounts, remove_group_discount_items
 
 def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
     '''
@@ -15,19 +15,19 @@ def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> b
     # Items are valid only when there is no set difference between the valid items and customer items
     return len(set_of_customer_items-set_of_valid_items) == 0
 
-# Assumption: Based on the second deployment, its clear that customer expects -1 for any invalid
-#  item despite other valid items being present
 def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                                    price_of_items: dict) -> int:
     '''
     Using the price of items and any special offers, this calculates the 
-    checkout value after the shopping
+    checkout value after the shopping. Based on the second deployment, its clear that customer expects 
+    -1 for any invalid item despite other valid items being present
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
     
     # --------------------- GROUP DISCOUNTS FOR SPECIAL ITEMS---------------------------#
     group_discount_checkout_value = calculate_group_discounts(number_of_items_in_inventory, price_of_items)
+    number_of_items_in_inventory = remove_group_discount_items(number_of_items_in_inventory)
     
     # ------------ FREE ITEMS OFFER WHEN PURCHASED SPECIFIC QUANTITIES-------------------#
     if ("E" and "B") in number_of_items_in_inventory:
@@ -64,5 +64,5 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                 final_checkout_value+=calculate_special_offer_for_V(number_of_items_in_inventory[item], price_of_items[item])          
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
-    return final_checkout_value
+    return final_checkout_value + group_discount_checkout_value
 

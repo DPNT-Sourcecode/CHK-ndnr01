@@ -34,7 +34,11 @@ def _total_number_items_and_prices_applicable_for_group_discounts(number_of_item
     return (total_number_of_items_in_group_discount, list_of_prices_of_group_discount_items)
 
 def remove_group_discount_items(number_of_items_in_inventory:dict) -> dict:
+    '''
+    To prevent being included in the calculations ahead
+    '''
     list_of_items_for_group_discount = ["S","T","X","Y","Z"]
-        for item in list_of_items_for_group_discount:
+    for item in list_of_items_for_group_discount:
             number_of_items_in_inventory[item]=0
+    return number_of_items_in_inventory
 
