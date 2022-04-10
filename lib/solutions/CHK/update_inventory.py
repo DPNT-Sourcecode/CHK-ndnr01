@@ -28,9 +28,18 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
     return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
 
-def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
+def update_number_of_F_items(number_of_items_in_inventory: dict, offering_item: str, offered_item: str) ->int:
     '''
-    3N get one M free
+    3N get one M free (Same logic as for Item B)
+    2E gives free B
     '''
-    return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
+    number_of_free_B_items= number_of_items_in_inventory[offering_item] // 2
+    number_of_items_of_B = number_of_items_in_inventory[offered_item]
+    # Checks if customer has more B items than the free B items
+    if number_of_items_of_B > number_of_free_B_items:
+            return number_of_items_of_B - number_of_free_B_items
+    # If less bought items than free, then they pay zero for the B items
+    else:
+        return 0
+
 
