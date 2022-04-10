@@ -66,7 +66,7 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
     '''
     2B for 45
     '''
-    print(number_of_items_in_inventory[item], item)
+    print(number_of_items_in_inventory)
     number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
     number_of_items_in_offer = number_of_items_in_inventory[item] // 2
     return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
@@ -78,10 +78,10 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
     will be given as free rather than price of B being reduced from the final checkout value
     '''
     number_of_free_B_items= number_of_items_in_inventory[item] // 2
-    update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_items)
-    return (number_of_items_in_inventory[item]*price_of_items[item])
+    number_of_B_items = update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_items)
+    return (number_of_items_in_inventory[item]*price_of_items[item], number_of_B_items)
 
-def update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_items):
+def update_number_of_B_items(number_of_items_in_inventory: dict, number_of_free_B_items: dict) -> int:
     '''
     Updates the number of B items customer is required to pay based on the number
     of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
@@ -94,10 +94,10 @@ def update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_item
         number_of_items_of_B = number_of_items_in_inventory["B"]
         # Checks if customer has more B items than the free B items
         if number_of_items_of_B > number_of_free_B_items:
-             number_of_items_in_inventory["B"] = number_of_items_of_B - number_of_free_B_items
+             return number_of_items_of_B - number_of_free_B_items
         # If less bought items than free, then they pay zero for the B items
         else:
-            number_of_items_in_inventory["B"] = 0
+            return 0
 
 checkout("ABCDEEE")
 #============ IMPROVEMENTS=========#
@@ -106,5 +106,6 @@ checkout("ABCDEEE")
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
 
