@@ -9,4 +9,5 @@ class TestCheckout():
         assert checkout_solution.checkout("AABBCDABA") == 290
 
     def test_checkout_value_when_invalid_items(self):
-        assert checkout_solution.checkout("John") == "Hello, John!"
+        assert checkout_solution.checkout("ABCD1234 ") == 115
+

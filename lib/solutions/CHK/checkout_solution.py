@@ -41,3 +41,4 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     return final_checkout_value
 
 
+
