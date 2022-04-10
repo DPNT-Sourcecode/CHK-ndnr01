@@ -28,14 +28,14 @@ def checkout(skus: str) -> int:
                       "P":50,
                       "Q":30,
                       "R":50,
-                      "S":30,
+                      "S":20,
                       "T":20,
                       "U":40,
                       "V":50,
                       "W":20,
-                      "X":90,
-                      "Y":10,
-                      "Z":50}
+                      "X":17,
+                      "Y":20,
+                      "Z":21}
     
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
@@ -49,3 +49,4 @@ def checkout(skus: str) -> int:
 3. Create config file.py to load all hardcoded values calclate_special offer and other modules
 3. Write unit tests for separated modules
 '''
+
