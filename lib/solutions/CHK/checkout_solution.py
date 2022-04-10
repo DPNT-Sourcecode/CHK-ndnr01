@@ -18,9 +18,12 @@ def checkout(skus: str) -> int:
     return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
 
 def is_invalid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
-    '''Checks for any invalid items'''
+    '''
+    Checks for any invalid items
+    '''
     set_of_valid_items = set(price_of_items.keys())
     set_of_invalid_items = set(number_of_items_in_inventory.keys())
+    # Items are valid only when there is no set difference between the valid items and customer items
     return len(set_of_invalid_items-set_of_valid_items) == 0
 
 # Assumption: Based on the second deployment, its clear that customer expects -1 for any invalid
@@ -47,4 +50,5 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 
