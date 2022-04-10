@@ -68,7 +68,7 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
     '''
     number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
     number_of_items_in_offer = number_of_items_in_inventory[item] // 2
-    
+    # Subtract the free Bs here before calc the value
     return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
 
 def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
@@ -86,5 +86,6 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
 1. Rearchitecture the code into separate files etc
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
 
