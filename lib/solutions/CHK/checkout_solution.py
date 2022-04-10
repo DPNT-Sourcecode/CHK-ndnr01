@@ -99,10 +99,10 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
         else:
             return 0
 
-checkout("ABCDEEE")
 #============ IMPROVEMENTS=========#
 '''
 1a. Rearchitecture the code into separate files etc
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
