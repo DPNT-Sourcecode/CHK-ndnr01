@@ -23,4 +23,4 @@ class TestCheckout():
         assert checkout_solution.checkout("ABCDEEE") == 205
 
     def test_checkout_value_when_free_B_greater_than_B_in_inventory(self):
-        assert checkout_solution.checkout("ABBB") == 580
+        assert checkout_solution.checkout("ABEEEEE") == 250
