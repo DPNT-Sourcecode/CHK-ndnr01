@@ -59,3 +59,6 @@ def update_number_of_items_based_on_single_item_offer(number_of_items_in_invento
     # # If less bought items than free, then they pay zero for the B items
     # else:
     #     return 0
+    
+    
+    # return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
