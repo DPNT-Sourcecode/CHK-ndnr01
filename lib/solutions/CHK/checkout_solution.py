@@ -10,4 +10,16 @@ def checkout(skus):
         skus [..N] = ?
     @return: Total checkout value
     '''
+    # Check illegal argument
+    if skus[0].isalpha():
+        return True
+    return False
+
+def check_illegal_argument(skus):
+    '''
+    '''
+    if skus[0].isalpha():
+        return True
+    return False
+
 
