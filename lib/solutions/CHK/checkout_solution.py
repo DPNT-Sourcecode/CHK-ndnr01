@@ -95,7 +95,13 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     # If less bought items than free, then they pay zero for the B items
     else:
         return 0
-
+def update_number_of_F_items():
+    '''
+    2F gets another F free: Offer requires 3Fs in basket. On that basis, I am making an assumption tha
+    '''
+    
+    
+    
 #============ IMPROVEMENTS=========#
 '''
 1a. Rearchitecture the code into separate files etc
