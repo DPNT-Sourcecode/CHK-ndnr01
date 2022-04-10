@@ -24,4 +24,3 @@ def checkout(skus: str) -> int:
 2. Extract the common functionality i.e. // and % into separate function as repeated
 3. Write unit tests for separated modules
 '''
-
