@@ -31,7 +31,7 @@ def _total_number_items_and_prices_applicable_for_group_discounts(number_of_item
     total_number_of_items_in_group_discount = 0
     for item in list_of_items_for_group_discount:
         if item in number_of_items_in_inventory:
-            total_number_of_items_in_group_discount +number_of_items_in_inventory[item]
+            total_number_of_items_in_group_discount+=number_of_items_in_inventory[item]
             list_of_prices_of_group_discount_items.append(price_of_items[item])
     return (total_number_of_items_in_group_discount, list_of_prices_of_group_discount_items)
 
@@ -43,5 +43,6 @@ def remove_group_discount_items(number_of_items_in_inventory:dict) -> dict:
     for item in list_of_items_for_group_discount:
             number_of_items_in_inventory[item]=0
     return number_of_items_in_inventory
+
 
 
