@@ -36,6 +36,9 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
+    
+    number_of_B_items = update_number_of_B_items(number_of_items_in_inventory)
+
     for item in number_of_items_in_inventory:    
         if item in price_of_items: # Checks if item is valid
             # Special Offer A
@@ -79,11 +82,9 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
     This assumes that if B alread in inventory, then it will not be charged. If B not in inventory, it
     will be given as free rather than price of B being reduced from the final checkout value
     '''
-    number_of_free_B_items= number_of_items_in_inventory[item] // 2
-    number_of_B_items = update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_items)
     return (number_of_items_in_inventory[item]*price_of_items[item], number_of_B_items)
 
-def update_number_of_B_items(number_of_items_in_inventory: dict, number_of_free_B_items: dict) -> int:
+def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     '''
     Updates the number of B items customer is required to pay based on the number
     of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
@@ -91,6 +92,7 @@ def update_number_of_B_items(number_of_items_in_inventory: dict, number_of_free_
     from the final checkout value
     Note: Number of B items are changed to manage this requirement rather than the checkout price
     '''
+    number_of_free_B_items= number_of_items_in_inventory["E"] // 2
     # If item B exists in inventory
     if "B" in number_of_items_in_inventory:
         number_of_items_of_B = number_of_items_in_inventory["B"]
@@ -108,8 +110,3 @@ checkout("ABCDEEE")
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
-
-
-
-
-
