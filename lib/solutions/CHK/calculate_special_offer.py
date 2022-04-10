@@ -60,10 +60,11 @@ def _calculate_single_offer(number_of_item: int, price_of_item: int, number_of_i
     return (number_of_items_out_of_offer*price_of_item) + (number_of_items_in_offer*value_of_offer)
     
 def _calculate_combined_offer(number_of_item: int, price_of_item: int, number_of_items_for_offer: int, value_of_offer: int):
-    number_of_items_in_offer_of_ten = number_of_items_in_inventory[item] // 10
-    number_of_items_not_in_offer_of_ten = number_of_items_in_inventory[item] % 10
-    number_of_items_in_offer_of_five = number_of_items_not_in_offer_of_ten // 5
-    number_of_items_out_of_offer = number_of_items_not_in_offer_of_ten % 5
-    return (number_of_items_in_offer_of_ten*80) + (number_of_items_in_offer_of_five*45) + (number_of_items_out_of_offer*price_of_items[item])
+    number_of_items_in_the_larger_offer = number_of_item // 10
+    number_of_items_not_in_the_larger_offer = number_of_item % 10
+    number_of_items_in_the_smaller_offer = number_of_items_not_in_the_larger_offer // 5
+    number_of_items_out_of_offer = number_of_items_not_in_the_larger_offer % 5
+    return (number_of_items_in_the_larger_offer*80) + (number_of_items_in_the_smaller_offer*45) + (number_of_items_out_of_offer*price_of_item)
 #========================================================================================================#
+
 
