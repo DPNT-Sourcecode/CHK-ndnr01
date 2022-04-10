@@ -41,12 +41,13 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             # Special Offer A
             if item == "A":
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
+                        # Special Offer E
+
+            elif item == "E":
+                calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
             # Special Offer B
             elif item == "B":
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
-            # Special Offer E
-            # elif item == "E":
-            #     calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
@@ -86,6 +87,7 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
 1. Rearchitecture the code into separate files etc
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
 
 
