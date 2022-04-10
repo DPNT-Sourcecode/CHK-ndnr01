@@ -1,5 +1,6 @@
 '''
-Updates the number of items used in the inventory. This is based on 
+Updates the number of items used in the inventory. This is based on offers that
+provide free items
 '''
 def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     '''
