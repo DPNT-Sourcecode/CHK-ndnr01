@@ -1,3 +1,10 @@
+'''
+Validates inventory and calculates the final checkout value based on updated inventory and special offers
+'''
+
+from update_inventory import update_number_of_B_items, update_number_of_F_items
+from calculate_special_offer import calculate_special_offer_for_A, calculate_special_offer_for_B, calculate_special_offer_for_E
+
 def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
     '''
     Checks for any invalid items

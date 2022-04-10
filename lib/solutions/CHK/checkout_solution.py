@@ -1,4 +1,4 @@
-from calculate_final_checkout import is_valid_item, calculate_final_checkout_value
+from solutions.CHK.calculate_final_checkout import is_valid_item, calculate_final_checkout_value
 
 from collections import Counter
 
@@ -119,3 +119,4 @@ def checkout(skus: str) -> int:
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
