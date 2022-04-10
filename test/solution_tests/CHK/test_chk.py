@@ -10,5 +10,3 @@ class TestCheckout():
 
     def test_checkout_value_when_invalid_items(self):
         assert checkout_solution.checkout("ABCD1234") == -1
-
-
