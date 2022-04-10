@@ -4,9 +4,6 @@ Since the policy favours customer, so the customer uses higher price items to fo
 and pays for the lowest ones
 '''
 
-from calendar import prcal
-
-
 def calculate_group_discounts(number_of_items_in_inventory: dict, price_of_items: dict) -> int:
     total_number_of_items_in_group_discount, list_of_prices_of_group_discount_items = _total_number_items_and_prices_applicable_for_group_discounts(number_of_items_in_inventory, price_of_items)
     
@@ -15,7 +12,10 @@ def calculate_group_discounts(number_of_items_in_inventory: dict, price_of_items
     
     final_price_of_group_discounts = number_of_group_discounts * 45
     if number_of_items_left_from_group_discounts == 1:
-        return (min(list_of_prices_of_group_discount_items))
+        return (min(list_of_prices_of_group_discount_items)+final_price_of_group_discounts)
+    
+    list_of_prices_of_group_discount_items = sorted(list_of_prices_of_group_discount_items)
+    return (list_of_prices_of_group_discount_items[0]+list_of_prices_of_group_discount_items[1]+final_price_of_group_discounts)
     
 def _total_number_items_and_prices_applicable_for_group_discounts(number_of_items_in_inventory:dict, price_of_items: dict):
     list_of_items_for_group_discount = ["S","T","X","Y","Z"]
@@ -26,5 +26,3 @@ def _total_number_items_and_prices_applicable_for_group_discounts(number_of_item
             total_number_of_items_in_group_discount +=total_number_of_items_in_group_discount+number_of_items_in_inventory[item]
             list_of_prices_of_group_discount_items.append(price_of_items[item])
     return (total_number_of_items_in_group_discount, list_of_prices_of_group_discount_items)
-
-
