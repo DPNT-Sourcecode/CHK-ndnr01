@@ -31,3 +31,6 @@ class TestCheckout():
     
     def test_checkout_value_when_offer_invalid_for_F_item(self):
         assert checkout_solution.checkout("AFF") == 70
+
+    def test_checkout_value_when_offer_valid_for_F_item(self):
+        assert checkout_solution.checkout("ANNNMMN") == 225
