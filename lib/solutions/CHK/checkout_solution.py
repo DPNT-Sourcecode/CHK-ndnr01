@@ -80,17 +80,19 @@ def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict,
     number_of_free_B_items= number_of_items_in_inventory[item] // 2
     # If item B exists in inventory
     if "B" in number_of_items_in_inventory:
-        number_of_items_of_B = number_of_items_in_inventory["B"] 
-        
+        number_of_items_of_B = number_of_items_in_inventory["B"]
+        if number_of_items_of_B > number_of_free_B_items:
+             number_of_items_in_inventory["B"] = number_of_items_of_B - number_of_free_B_items
+        else:
+            number_of_items_in_inventory["B"] = 0
     return (number_of_items_in_inventory[item]*price_of_items[item])
+
+def update_number_of_B_items():
+    '''
+    '''
 
 #============ IMPROVEMENTS=========#
 '''
 1. Rearchitecture the code into separate files etc
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
-
-
-
-
-
