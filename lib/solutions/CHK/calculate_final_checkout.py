@@ -27,7 +27,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     final_checkout_value = 0
     
     # --------------------- GROUP DISCOUNTS FOR SPECIAL ITEMS---------------------------#
-    
+    group_discount_checkout_value = calculate_group_discounts(number_of_items_in_inventory, price_of_items)
     
     # ------------ FREE ITEMS OFFER WHEN PURCHASED SPECIFIC QUANTITIES-------------------#
     if ("E" and "B") in number_of_items_in_inventory:
@@ -65,3 +65,4 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
