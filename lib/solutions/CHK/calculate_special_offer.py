@@ -10,20 +10,21 @@ def calculate_special_offer_for_A(number_of_item: int, price_of_item: int) -> in
     return _calculate_combined_offer(number_of_item=number_of_item,
                                      price_of_item=price_of_item,
                                      number_of_larger_offer=5,
-                                     number_of_smaller_offer=5,
+                                     number_of_smaller_offer=3,
                                      value_of_larger_offer=200,
                                      value_of_smaller_offer=130)
-    # number_of_items_in_offer_of_five = number_of_items_in_inventory[item] // 5
-    # number_of_items_not_in_offer_of_five = number_of_items_in_inventory[item] % 5
-    # number_of_items_in_offer_of_three = number_of_items_not_in_offer_of_five // 3
-    # number_of_items_out_of_offer = number_of_items_not_in_offer_of_five % 3
-    # return (number_of_items_in_offer_of_five*200) + (number_of_items_in_offer_of_three*130) + (number_of_items_out_of_offer*price_of_items[item])
 
-def calculate_special_offer_for_H(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
+def calculate_special_offer_for_H(number_of_item: int, price_of_item: int) -> int:
     '''
     3A for 130
     5A for 200
     '''
+    return _calculate_combined_offer(number_of_item=number_of_item,
+                                    price_of_item=price_of_item,
+                                    number_of_larger_offer=10,
+                                    number_of_smaller_offer=5,
+                                    value_of_larger_offer=80,
+                                    value_of_smaller_offer=45)
     number_of_items_in_offer_of_ten = number_of_items_in_inventory[item] // 10
     number_of_items_not_in_offer_of_ten = number_of_items_in_inventory[item] % 10
     number_of_items_in_offer_of_five = number_of_items_not_in_offer_of_ten // 5
@@ -72,6 +73,7 @@ def _calculate_combined_offer(number_of_item: int, price_of_item: int, number_of
     number_of_items_out_of_offer = number_of_items_not_in_the_larger_offer % number_of_smaller_offer
     return (number_of_items_in_the_larger_offer*value_of_larger_offer) + (number_of_items_in_the_smaller_offer*value_of_smaller_offer) + (number_of_items_out_of_offer*price_of_item)
 #========================================================================================================#
+
 
 
 
