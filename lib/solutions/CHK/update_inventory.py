@@ -42,12 +42,12 @@ def update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory:
     else:
         return 0
     
-def update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory: dict, offering_item: str) ->int:
+def update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory: dict, offering_item: str, value_of_offer: int) ->int:
     '''
     2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
     for 6Fs
     '''
-    return number_of_items_in_inventory[offering_item] - (number_of_items_in_inventory[offering_item] // 3)
+    return number_of_items_in_inventory[offering_item] - (number_of_items_in_inventory[offering_item] // value_of_offer)
 
 
 
