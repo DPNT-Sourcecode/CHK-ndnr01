@@ -11,8 +11,8 @@ def checkout(skus):
     @return: Total checkout value
     '''
     #---Debug Code-----#
-    for i in range(len(skus)):
-        print(skus[i])
+    # for i in range(len(skus)):
+    print(skus[0])
     # -------------#
     
     if is_illegal_argument(skus):
@@ -22,6 +22,7 @@ def checkout(skus):
 def is_illegal_argument(skus):
     ''' Check for illegal argument'''
     return skus[0].isalpha()
+
 
 
 
