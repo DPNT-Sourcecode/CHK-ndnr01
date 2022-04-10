@@ -37,3 +37,10 @@ class TestCheckout():
         
     def test_checkout_value_when_group_discounts(self):
         assert checkout_solution.checkout("ASTBXZ") == 225
+        
+    def test_checkout_value_when_group_discounts(self):
+        assert checkout_solution.checkout("ASTBX") == 225
+    
+        def test_checkout_value_when_group_discounts(self):
+        assert checkout_solution.checkout("ASTBX") == 225
+    
