@@ -39,7 +39,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     if ("E" and "B") in number_of_items_in_inventory:
         number_of_items_in_inventory["B"] = update_number_of_B_items(number_of_items_in_inventory)
     
-    if (number_of_items_in_inventory["F"] % 3) == 0:
+    if number_of_items_in_inventory["F"] >=3:
         number_of_items_in_inventory["F"] = update_number_of_F_items(number_of_items_in_inventory)
 
     for item in number_of_items_in_inventory:    
@@ -101,8 +101,8 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
 
 def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
-    2F gets another F free: Offer requires 3Fs in basket. On that basis, I am making an assumption
-    that F needs to be in triplets for this offer to be valid. If there are 2/4 Fs then offer not applied and you just pay the usual price
+    2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
+    for 6Fs
     '''
     return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
 
@@ -117,6 +117,3 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
-
-
-

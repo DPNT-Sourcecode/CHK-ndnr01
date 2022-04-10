@@ -24,9 +24,10 @@ class TestCheckout():
 
     def test_checkout_value_when_free_B_greater_than_B_in_inventory(self):
         assert checkout_solution.checkout("ABEEEEE") == 250
-    
+
+    # Create a parameterised test to check all combinations
     def test_checkout_value_when_offer_valid_for_F_item(self):
         assert checkout_solution.checkout("AFFFFFFFFF") == 110
     
     def test_checkout_value_when_offer_invalid_for_F_item(self):
-        assert checkout_solution.checkout("A") == 250
+        assert checkout_solution.checkout("AFF") == 70
