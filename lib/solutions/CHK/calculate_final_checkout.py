@@ -35,11 +35,11 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             if item == "A": # Special Offer A
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
             elif item == "B": # Special Offer B
-                final_checkout_value+=calculate_special_offer_for_B(number_of_items_in_inventory[item], price_of_items[item])
-            elif item == "H":
-                final_checkout_value+=calculate_special_offer_for_H(item, number_of_items_in_inventory, price_of_items)
-            elif item == "K":
-                final_checkout_value+=calculate_special_offer_for_K(number_of_items_in_inventory, price_of_items)
+                final_checkout_value+=calculate_special_offer_for_B(int(number_of_items_in_inventory[item]), int(price_of_items[item]))
+            # elif item == "H":
+            #     final_checkout_value+=calculate_special_offer_for_H(item, number_of_items_in_inventory, price_of_items)
+            # elif item == "K":
+            #     final_checkout_value+=calculate_special_offer_for_K(number_of_items_in_inventory[item], price_of_items[item])
             # elif item == "P":
             #     final_checkout_value+=calculate_special_offer_for_P(item, number_of_items_in_inventory, price_of_items)
             # elif item == "Q":
@@ -49,6 +49,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 
 
 

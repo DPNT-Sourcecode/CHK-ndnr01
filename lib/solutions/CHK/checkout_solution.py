@@ -19,7 +19,7 @@ def checkout(skus: str) -> int:
         return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
     return -1
 
-
+checkout_c
 #============ IMPROVEMENTS=========#
 '''
 2. Extract the common functionality i.e. // and % into separate function as repeated
