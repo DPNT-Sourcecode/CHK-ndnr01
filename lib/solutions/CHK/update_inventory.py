@@ -28,18 +28,23 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
     return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
 
-def update_number_of_F_items(number_of_items_in_inventory: dict, offering_item: str, offered_item: str) ->int:
+def update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount) ->int:
     '''
     3N get one M free (Same logic as for Item B)
     2E gives free B
     '''
-    number_of_free_B_items= number_of_items_in_inventory[offering_item] // 2
-    number_of_items_of_B = number_of_items_in_inventory[offered_item]
+    number_of_free_offered_items= number_of_items_in_inventory[offering_item] // 2
+    number_of_offered_items = number_of_items_in_inventory[offered_item]
     # Checks if customer has more B items than the free B items
-    if number_of_items_of_B > number_of_free_B_items:
-            return number_of_items_of_B - number_of_free_B_items
+    if number_of_offered_items > number_of_free_offered_items:
+            return number_of_offered_items - number_of_free_offered_items
     # If less bought items than free, then they pay zero for the B items
     else:
         return 0
-
-
+    
+def update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory: dict, offering_item: str) ->int:
+    '''
+    2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
+    for 6Fs
+    '''
+    return number_of_items_in_inventory[offering_item] - (number_of_items_in_inventory[offering_item] // 3)
