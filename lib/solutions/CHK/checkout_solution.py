@@ -36,7 +36,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
-    if "E" in number_of_items_in_inventory:
+    if ("E" and "B") in number_of_items_in_inventory:
         number_of_items_in_inventory["B"] = update_number_of_B_items(number_of_items_in_inventory)
 
     for item in number_of_items_in_inventory:    
@@ -66,7 +66,6 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
     '''
     2B for 45
     '''
-    print(number_of_items_in_inventory)
     number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
     number_of_items_in_offer = number_of_items_in_inventory[item] // 2
     return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
@@ -89,15 +88,13 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     Note: Number of B items are changed to manage this requirement rather than the checkout price
     '''
     number_of_free_B_items= number_of_items_in_inventory["E"] // 2
-    # If item B exists in inventory
-    if "B" in number_of_items_in_inventory:
-        number_of_items_of_B = number_of_items_in_inventory["B"]
-        # Checks if customer has more B items than the free B items
-        if number_of_items_of_B > number_of_free_B_items:
-             return number_of_items_of_B - number_of_free_B_items
-        # If less bought items than free, then they pay zero for the B items
-        else:
-            return 0
+    number_of_items_of_B = number_of_items_in_inventory["B"]
+    # Checks if customer has more B items than the free B items
+    if number_of_items_of_B > number_of_free_B_items:
+            return number_of_items_of_B - number_of_free_B_items
+    # If less bought items than free, then they pay zero for the B items
+    else:
+        return 0
 
 #============ IMPROVEMENTS=========#
 '''
