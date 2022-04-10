@@ -2,6 +2,8 @@
 Updates the number of items used in the inventory. This is based on offers that
 provide free items
 '''
+
+# ===========================TWO ITEM OFFERS========================# 
 def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     '''
     2E gives free B
@@ -12,29 +14,33 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     from the final checkout value
     Note: Number of B items are changed to manage this requirement rather than the checkout price
     '''
-    number_of_free_B_items= number_of_items_in_inventory["E"] // 2
-    number_of_items_of_B = number_of_items_in_inventory["B"]
-    # Checks if customer has more B items than the free B items
-    if number_of_items_of_B > number_of_free_B_items:
-            return number_of_items_of_B - number_of_free_B_items
-    # If less bought items than free, then they pay zero for the B items
-    else:
-        return 0
+    return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
+                                                           offered_item="E",
+                                                           offering_item="B")
+    # number_of_free_B_items= number_of_items_in_inventory["E"] // 2
+    # number_of_items_of_B = number_of_items_in_inventory["B"]
+    # # Checks if customer has more B items than the free B items
+    # if number_of_items_of_B > number_of_free_B_items:
+    #         return number_of_items_of_B - number_of_free_B_items
+    # # If less bought items than free, then they pay zero for the B items
+    # else:
+    #     return 0
 
+# ===========================SINGLE ITEM OFFERS========================# 
 def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
     2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
     for 6Fs
-    3 here is based on -> 2F + 1F free = 3(Did some calculations to come up with this logic)
+    value_of_offer-> 2F + 1F(free) = 3(Did some calculations to determine this logic)
     '''
     return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                               offering_item="F",
                                                               value_of_offer=3)
     
+# ===========================HELPER FUNCTIONS========================# 
 def _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount_of_offer: int) ->int:
     '''
     3N get one M free (Same logic as for Item B)
-    @params: valu
     '''
     number_of_free_offered_items= number_of_items_in_inventory[offering_item] // amount_of_offer
     number_of_offered_items = number_of_items_in_inventory[offered_item]
@@ -65,4 +71,5 @@ def _update_number_of_items_based_on_single_item_offer(number_of_items_in_invent
     
     
     # return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
+
 
