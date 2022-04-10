@@ -4,6 +4,7 @@ Validates inventory and calculates the final checkout value based on updated inv
 
 from solutions.CHK.update_inventory import update_number_of_B_items, update_number_of_F_items, update_number_of_M_items, update_number_of_Q_items, update_number_of_U_items
 from solutions.CHK.calculate_special_offer import calculate_special_offer_for_A, calculate_special_offer_for_B, calculate_special_offer_for_K, calculate_special_offer_for_H, calculate_special_offer_for_P, calculate_special_offer_for_Q, calculate_special_offer_for_V
+from solutions.CHK.calculate_group_discount import calculate_group_discounts
 
 def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
     '''
@@ -24,6 +25,9 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
+    
+    # --------------------- GROUP DISCOUNTS FOR SPECIAL ITEMS---------------------------#
+    
     
     # ------------ FREE ITEMS OFFER WHEN PURCHASED SPECIFIC QUANTITIES-------------------#
     if ("E" and "B") in number_of_items_in_inventory:
