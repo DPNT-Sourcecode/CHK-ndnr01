@@ -13,18 +13,18 @@ def checkout(skus: str) -> int:
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
     
-    if is_invalid_item(price_of_items, number_of_items_in_inventory):
-        return -1
-    return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
+    if is_valid_item(price_of_items, number_of_items_in_inventory):
+        return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
+    return -1
 
-def is_invalid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
+def is_valid_item(price_of_items: dict, number_of_items_in_inventory: dict) -> bool:
     '''
     Checks for any invalid items
     '''
     set_of_valid_items = set(price_of_items.keys())
-    set_of_invalid_items = set(number_of_items_in_inventory.keys())
+    set_of_customer_items = set(number_of_items_in_inventory.keys())
     # Items are valid only when there is no set difference between the valid items and customer items
-    return len(set_of_invalid_items-set_of_valid_items) == 0
+    return len(set_of_customer_items-set_of_valid_items) == 0
 
 # Assumption: Based on the second deployment, its clear that customer expects -1 for any invalid
 #  item despite other valid items being present
@@ -50,5 +50,6 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 
 
