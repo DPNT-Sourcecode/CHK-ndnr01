@@ -36,19 +36,14 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
-    
-    number_of_B_items = update_number_of_B_items(number_of_items_in_inventory)
+    if "E" in number_of_items_in_inventory:
+        number_of_items_in_inventory["B"] = update_number_of_B_items(number_of_items_in_inventory)
 
     for item in number_of_items_in_inventory:    
         if item in price_of_items: # Checks if item is valid
             # Special Offer A
             if item == "A":
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
-            # Special Offer E
-            elif item == "E":
-                checkout_value_E, number_of_B_items=calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
-                final_checkout_value+=checkout_value_E
-                number_of_items_in_inventory["B"] = number_of_B_items
             # Special Offer B
             elif item == "B":
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
@@ -78,14 +73,15 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
 
 def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
     '''
-    2E gives free B
     This assumes that if B alread in inventory, then it will not be charged. If B not in inventory, it
     will be given as free rather than price of B being reduced from the final checkout value
     '''
-    return (number_of_items_in_inventory[item]*price_of_items[item], number_of_B_items)
+    return (number_of_items_in_inventory[item]*price_of_items[item])
 
 def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     '''
+    2E gives free B
+
     Updates the number of B items customer is required to pay based on the number
     of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
     If B not in inventory, it will be given as free rather than price of B being reduced 
