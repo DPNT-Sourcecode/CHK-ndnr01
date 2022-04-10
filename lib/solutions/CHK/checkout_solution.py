@@ -12,16 +12,17 @@ def checkout(skus):
     '''
     #---Debug Code-----#
     # for i in range(len(skus)):
-    print(skus[0])
+    print(skus)
     # -------------#
     
-    if is_illegal_argument(skus):
-        return 1
-    return 0
+    # if is_illegal_argument(skus):
+    #     return 1
+    # return 0
 
-def is_illegal_argument(skus):
-    ''' Check for illegal argument'''
-    return skus[0].isalpha()
+# def is_illegal_argument(skus):
+#     ''' Check for illegal argument'''
+#     return skus[0].isalpha()
+
 
 
 
