@@ -21,7 +21,6 @@ def checkout(skus: str) -> int:
 
 #============ IMPROVEMENTS=========#
 '''
-2. Extract the common functionality i.e. // and % into separate function as repeated
 3. Create config file.py to load all hardcoded values calclate_special offer and other modules
 3. Write unit tests for separated modules
 '''
