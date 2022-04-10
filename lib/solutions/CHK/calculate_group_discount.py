@@ -2,15 +2,14 @@
 Calculates the group discount
 '''
 
+from calendar import prcal
+
+
 def calculate_group_discounts(number_of_items_in_inventory: dict, price_of_items: dict) -> int:
-    number_of_S_items = number_of_items_in_inventory.get("S", 0)
-    number_of_S_items = number_of_items_in_inventory.get("S", 0)
-    number_of_S_items = number_of_items_in_inventory.get("S", 0)
-    number_of_S_items = number_of_items_in_inventory.get("S", 0)
-    number_of_S_items = number_of_items_in_inventory.get("S", 0)
+    total_number_of_items_in_group_discount, list_of_prices_of_group_discount_items = _total_number_items_and_prices_applicable_for_group_discounts(number_of_items_in_inventory, price_of_items)
     
     
-def _total_number_items_applicable_for_group_discounts(number_of_items_in_inventory:dict, price_of_items: dict):
+def _total_number_items_and_prices_applicable_for_group_discounts(number_of_items_in_inventory:dict, price_of_items: dict):
     list_of_items_for_group_discount = ["S","T","X","Y","Z"]
     list_of_prices_of_group_discount_items = []
     total_number_of_items_in_group_discount = 0
