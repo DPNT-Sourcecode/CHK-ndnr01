@@ -1,5 +1,6 @@
 from solutions.CHK import checkout_solution
 
+# Integration Testing
 class TestCheckout():
     
     def test_checkout_value_when_no_special_offer_and_valid_items(self):

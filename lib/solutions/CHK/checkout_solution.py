@@ -43,7 +43,9 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                 final_checkout_value+=calculate_special_offer_for_A(item, number_of_items_in_inventory, price_of_items)
             # Special Offer E
             elif item == "E":
+                print(number_of_items_in_inventory)
                 final_checkout_value+=calculate_special_offer_for_E(item, number_of_items_in_inventory, price_of_items)
+                print(number_of_items_in_inventory)            
             # Special Offer B
             elif item == "B":
                 final_checkout_value+=calculate_special_offer_for_B(item, number_of_items_in_inventory, price_of_items)
@@ -99,9 +101,11 @@ def update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_item
         else:
             number_of_items_in_inventory["B"] = 0
 
+checkout("ABCDEEE")
 #============ IMPROVEMENTS=========#
 '''
 1a. Rearchitecture the code into separate files etc
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
