@@ -58,7 +58,7 @@ def calculate_special_offer_for_K(number_of_item: int, price_of_item: int) -> in
     return _calculate_single_offer(number_of_item= number_of_item, 
                             price_of_item= price_of_item, 
                             number_of_items_for_offer=2, 
-                            value_of_offer=150)
+                            value_of_offer=120)
 
 def calculate_special_offer_for_P(number_of_item: int, price_of_item: int) -> int:
     '''
