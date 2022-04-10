@@ -7,12 +7,6 @@ provide free items
 def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
     '''
     2E gives free B
-
-    Updates the number of B items customer is required to pay based on the number
-    of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
-    If B not in inventory, it will be given as free rather than price of B being reduced 
-    from the final checkout value
-    Note: Number of B items are changed to manage this requirement rather than the checkout price
     '''
     return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                            offering_item="E",
@@ -20,27 +14,15 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
                                                            amount_of_offer=2)
 def update_number_of_M_items(number_of_items_in_inventory: dict) -> int:
     '''
-    2E gives free B
-
-    Updates the number of B items customer is required to pay based on the number
-    of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
-    If B not in inventory, it will be given as free rather than price of B being reduced 
-    from the final checkout value
-    Note: Number of B items are changed to manage this requirement rather than the checkout price
+    3N get one M free
     '''
     return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                            offering_item="E",
                                                            offered_item="B",
                                                            amount_of_offer=2)
-def update_number_of_M_items(number_of_items_in_inventory: dict) -> int:
+def update_number_of_Q_items(number_of_items_in_inventory: dict) -> int:
     '''
-    2E gives free B
-
-    Updates the number of B items customer is required to pay based on the number
-    of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
-    If B not in inventory, it will be given as free rather than price of B being reduced 
-    from the final checkout value
-    Note: Number of B items are changed to manage this requirement rather than the checkout price
+    3R get one Q free
     '''
     return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                            offering_item="E",
@@ -57,11 +39,22 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                               offering_item="F",
                                                               value_of_offer=3)
+def update_number_of_U_items(number_of_items_in_inventory: dict) ->int:
+    '''
+    3U get one U free 
+    '''
+    return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
+                                                              offering_item="F",
+                                                              value_of_offer=3)
 
 # ===========================HELPER FUNCTIONS========================# 
 def _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount_of_offer: int) ->int:
     '''
-    3N get one M free (Same logic as for Item B)
+    Updates the number of x items customer is required to pay based on the number
+    of free x items they get. This assumes that if x alread in inventory, then it will not be charged. 
+    If x not in inventory, it will be given as free rather than price of x being reduced 
+    from the final checkout value
+    Note: Number of x items are changed to manage this requirement rather than the checkout price
     '''
     number_of_free_offered_items= number_of_items_in_inventory[offering_item] // amount_of_offer
     number_of_offered_items = number_of_items_in_inventory[offered_item]
@@ -92,7 +85,3 @@ def _update_number_of_items_based_on_single_item_offer(number_of_items_in_invent
     
     
     # return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
-
-
-
-
