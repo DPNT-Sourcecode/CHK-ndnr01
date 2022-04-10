@@ -17,17 +17,17 @@ def update_number_of_M_items(number_of_items_in_inventory: dict) -> int:
     3N get one M free
     '''
     return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
-                                                           offering_item="E",
-                                                           offered_item="B",
-                                                           amount_of_offer=2)
+                                                           offering_item="N",
+                                                           offered_item="M",
+                                                           amount_of_offer=3)
 def update_number_of_Q_items(number_of_items_in_inventory: dict) -> int:
     '''
     3R get one Q free
     '''
     return _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
-                                                           offering_item="E",
-                                                           offered_item="B",
-                                                           amount_of_offer=2)
+                                                           offering_item="R",
+                                                           offered_item="Q",
+                                                           amount_of_offer=3)
 
 # ===========================SINGLE ITEM OFFERS========================# 
 def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
@@ -39,13 +39,14 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
                                                               offering_item="F",
                                                               value_of_offer=3)
+
 def update_number_of_U_items(number_of_items_in_inventory: dict) ->int:
     '''
     3U get one U free 
     '''
     return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
-                                                              offering_item="F",
-                                                              value_of_offer=3)
+                                                              offering_item="U",
+                                                              value_of_offer=4)
 
 # ===========================HELPER FUNCTIONS========================# 
 def _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount_of_offer: int) ->int:
