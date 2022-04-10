@@ -35,12 +35,12 @@ class TestCheckout():
     def test_checkout_value_when_offer_valid_for_F_item(self):
         assert checkout_solution.checkout("ANNNMMN") == 225
         
-    def test_checkout_value_when_group_discounts(self):
+    def test_checkout_value_when_single_group_discounts(self):
         assert checkout_solution.checkout("ASTBXZ") == 225
-        
-    def test_checkout_value_when_group_discounts(self):
-        assert checkout_solution.checkout("ASTBX") == 225
+
+    # def test_checkout_value_when_multiple_group_discounts(self):
+    #     assert checkout_solution.checkout("ASTBXZZY") == 225
     
-        def test_checkout_value_when_group_discounts(self):
-        assert checkout_solution.checkout("ASTBX") == 225
+    # def test_checkout_value_when_two_items_left_after_group_discount(self):
+    #     assert checkout_solution.checkout("ASTBX") == 225
     
