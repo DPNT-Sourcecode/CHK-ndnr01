@@ -4,10 +4,7 @@
 # skus = unicode string
 def checkout(skus):
     '''
-    skus: 
-        skus[0] = String containing the SKUs of all the products in the basket
-        skus[1] = ?
-        skus [..N] = ?
+    skus: String of items 
     @return: Total checkout value
     '''
     #---Debug Code-----#
@@ -22,3 +19,4 @@ def checkout(skus):
 # def is_illegal_argument(skus):
 #     ''' Check for illegal argument'''
 #     return skus[0].isalpha()
+
