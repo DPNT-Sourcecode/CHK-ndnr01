@@ -8,7 +8,7 @@ def checkout(skus: str) -> int:
     @return: Total checkout value
     '''
     # Item price list
-    price_of_items = {"A": 50, "B": 30, "C": 20, "D": 15}
+    price_of_items = {"A": 50, "B": 30, "C": 20, "D": 15, "E": 40}
     
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)

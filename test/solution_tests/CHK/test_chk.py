@@ -16,10 +16,10 @@ class TestCheckout():
         assert checkout_solution.checkout("AAAAAAAAAAAAAA") == 580
     
     def test_checkout_value_when_free_B_and_B_not_in_inventory(self):
-        assert checkout_solution.checkout("ACDE") == 580
+        assert checkout_solution.checkout("ACDEEE") == 205
         
     def test_checkout_value_when_free_B_less_than_B_in_inventory(self):
-        assert checkout_solution.checkout("ABCD") == 580
+        assert checkout_solution.checkout("ABCDEEE") == 205
 
-    def test_checkout_value_when_free_B_greater_than_B_in_inventory(self):
-        assert checkout_solution.checkout("ABCD") == 580
+    # def test_checkout_value_when_free_B_greater_than_B_in_inventory(self):
+    #     assert checkout_solution.checkout("ABCD") == 580
