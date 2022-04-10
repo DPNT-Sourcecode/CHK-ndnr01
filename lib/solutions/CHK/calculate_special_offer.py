@@ -1,6 +1,7 @@
 '''
 Calculates the special offers for items which help customers save money when purchased in bulk
 '''
+
 def calculate_special_offer_for_A(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
     '''
     3A for 130
@@ -16,9 +17,10 @@ def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict,
     '''
     2B for 45
     '''
-    number_of_items_out_of_offer = number_of_items_in_inventory[item] % 2
-    number_of_items_in_offer = number_of_items_in_inventory[item] // 2
-    return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*45)
+    _calculate_single_offer(number_of_item= number_of_items_in_inventory[item], 
+                            price_of_item= price_of_items, 
+                            number_of_items_for_offer=2, 
+                            value_of_offer=45)
 
 def calculate_special_offer_for_E(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
     '''
@@ -38,10 +40,10 @@ def calculate_special_offer_for_H(item: str, number_of_items_in_inventory: dict,
     number_of_items_out_of_offer = number_of_items_not_in_offer_of_ten % 5
     return (number_of_items_in_offer_of_ten*80) + (number_of_items_in_offer_of_five*45) + (number_of_items_out_of_offer*price_of_items[item])
 
-def _calculate_single_offer(number_of_item: int, price_of_item: int, number_of_items_for_offer):
-    number_of_items_out_of_offer = number_of_item % 2
-    number_of_items_in_offer = number_of_item // 2
-    return (number_of_items_out_of_offer*price_of_item) + (number_of_items_in_offer*45)
+def _calculate_single_offer(number_of_item: int, price_of_item: int, number_of_items_for_offer: int, value_of_offer: int):
+    number_of_items_out_of_offer = number_of_item % number_of_items_for_offer
+    number_of_items_in_offer = number_of_item // number_of_items_for_offer
+    return (number_of_items_out_of_offer*price_of_item) + (number_of_items_in_offer*value_of_offer)
     
 def _calculate_multiple_offer():
     
