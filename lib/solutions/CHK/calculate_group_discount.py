@@ -11,9 +11,7 @@ def calculate_group_discounts(number_of_items_in_inventory: dict, price_of_items
     number_of_items_left_from_group_discounts =  total_number_of_items_in_group_discount % 3
     
     final_price_of_group_discounts = number_of_group_discounts * 45
-    
-    print(final_price_of_group_discounts)
-    
+        
     if number_of_items_left_from_group_discounts == 0:
         return final_price_of_group_discounts
     elif number_of_items_left_from_group_discounts == 1:
@@ -43,6 +41,3 @@ def remove_group_discount_items(number_of_items_in_inventory:dict) -> dict:
     for item in list_of_items_for_group_discount:
             number_of_items_in_inventory[item]=0
     return number_of_items_in_inventory
-
-
-
