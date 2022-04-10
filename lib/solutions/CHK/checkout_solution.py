@@ -56,13 +56,11 @@ def calculate_special_offer_for_A(item: str, number_of_items_in_inventory: dict,
     3A for 130
     5A for 200
     '''
-    number_of_items_in_offer_of_five = number_of_items_in_inventory[item] // 5 
-    if number_of_items_in_offer_of_five > 0:
-        number_of_items_in_offer_of_five = number_of_items_in_inventory[item] // 5
-    
-    number_of_items_out_of_offer = number_of_items_in_inventory[item] % 3
-    number_of_items_in_offer = number_of_items_in_inventory[item] // 3
-    return (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*130)
+    number_of_items_in_offer_of_five = number_of_items_in_inventory[item] // 5
+    number_of_items_not_in_offer_of_five = number_of_items_in_inventory[item] % 5
+    number_of_items_in_offer_of_three = number_of_items_not_in_offer_of_five // 3
+    number_of_items_out_of_offer = number_of_items_not_in_offer_of_five % 3
+    return (number_of_items_in_offer_of_five*200) + (number_of_items_out_of_offer*price_of_items[item]) + (number_of_items_in_offer*130)
 
 def calculate_special_offer_for_B(item: str, number_of_items_in_inventory: dict, price_of_items: dict) -> int:
     '''
