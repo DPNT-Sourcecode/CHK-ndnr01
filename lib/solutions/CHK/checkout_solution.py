@@ -87,17 +87,21 @@ def update_number_of_B_items(number_of_items_in_inventory, number_of_free_B_item
     of free B items they get. This assumes that if B alread in inventory, then it will not be charged. 
     If B not in inventory, it will be given as free rather than price of B being reduced 
     from the final checkout value
+    Note: Number of B items are changed to manage this requirement rather than the checkout price
     '''
     # If item B exists in inventory
     if "B" in number_of_items_in_inventory:
         number_of_items_of_B = number_of_items_in_inventory["B"]
+        # Checks if customer has more B items than the free B items
         if number_of_items_of_B > number_of_free_B_items:
              number_of_items_in_inventory["B"] = number_of_items_of_B - number_of_free_B_items
+        # If less bought items than free, then they pay zero for the B items
         else:
             number_of_items_in_inventory["B"] = 0
 
 #============ IMPROVEMENTS=========#
 '''
-1. Rearchitecture the code into separate files etc
+1a. Rearchitecture the code into separate files etc
+1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
