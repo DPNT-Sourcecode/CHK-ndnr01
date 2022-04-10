@@ -13,11 +13,11 @@ def checkout(skus: str) -> int:
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
     
-    is_illegal_input():
+    if is_invalid_item(price_of_items, number_of_items_in_inventory)
     
     return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
 
-def is_illegal_input(skus: str) -> int:
+def is_invalid_item(skus: str) -> int:
     '''
     skus: String of items 
     @return: Total checkout value
@@ -47,7 +47,3 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
-
-
-
-
