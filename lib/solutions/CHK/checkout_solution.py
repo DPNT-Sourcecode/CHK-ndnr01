@@ -25,7 +25,14 @@ def checkout(skus: str) -> int:
 def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                                    price_of_items: dict) -> int:
     final_checkout_value = 0
-    for item in number_of_items_in_inventory:
+    checkout_value =- 0
+    for item in number_of_items_in_inventory:    
         if item in price_of_items:
             
+            # Special Offer A
+            if item == "A":
+                number_of_items_out_of_offer = number_of_items_in_inventory[item] % 3
+                number_of_items_in_offer = number_of_items_in_inventory[item] // 3
+                checkout_value = 
     
+
