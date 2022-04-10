@@ -13,10 +13,18 @@ def checkout(skus: str) -> int:
     # Dictionary of frequency of items in inventory
     number_of_items_in_inventory = Counter(skus)
     
+    is_illegal_input():
+    
     return calculate_final_checkout_value(number_of_items_in_inventory, price_of_items)
 
-# Assumption: Any illegal input will be ignored and not counted in the checkout. It is not clear
-# from requirements if the -1 has any affect on checkout value and hence this assumption
+def is_illegal_input(skus: str) -> int:
+    '''
+    skus: String of items 
+    @return: Total checkout value
+    '''
+
+# Assumption: Based on the second deployment, its clear that customer expects -1 for any invalid
+#  item despite other valid items being present
 def calculate_final_checkout_value(number_of_items_in_inventory: dict,
                                    price_of_items: dict) -> int:
     '''
@@ -39,6 +47,7 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 
 
 
