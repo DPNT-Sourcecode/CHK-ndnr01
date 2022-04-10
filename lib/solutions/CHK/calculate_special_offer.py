@@ -31,7 +31,7 @@ def calculate_special_offer_for_B(number_of_item: int, price_of_item: int) -> in
     '''
     2B for 45
     '''
-    _calculate_single_offer(number_of_item= number_of_item, 
+    return _calculate_single_offer(number_of_item= number_of_item, 
                             price_of_item= price_of_item, 
                             number_of_items_for_offer=2, 
                             value_of_offer=45)
@@ -40,7 +40,7 @@ def calculate_special_offer_for_K(number_of_item: int, price_of_item: int) -> in
     '''
     2K for 150
     '''
-    _calculate_single_offer(number_of_item= number_of_item, 
+    return _calculate_single_offer(number_of_item= number_of_item, 
                             price_of_item= price_of_item, 
                             number_of_items_for_offer=2, 
                             value_of_offer=150)
@@ -66,4 +66,5 @@ def _calculate_single_offer(number_of_item: int, price_of_item: int, number_of_i
 #     number_of_items_out_of_offer = number_of_items_not_in_offer_of_ten % 5
 #     return (number_of_items_in_offer_of_ten*80) + (number_of_items_in_offer_of_five*45) + (number_of_items_out_of_offer*price_of_items[item])
 #========================================================================================================#
+
 
