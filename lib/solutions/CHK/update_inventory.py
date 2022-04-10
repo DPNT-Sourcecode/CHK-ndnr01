@@ -25,13 +25,16 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
     2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
     for 6Fs
+    3 here is based on -> 2F + 1F free = 3(Did some calculations to come up with this logic)
     '''
-    return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
-
-def update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount_of_offer: int) ->int:
+    return _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory=number_of_items_in_inventory,
+                                                              offering_item="F",
+                                                              value_of_offer=3)
+    
+def _update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory: dict, offering_item: str, offered_item: str, amount_of_offer: int) ->int:
     '''
     3N get one M free (Same logic as for Item B)
-    2E gives free B
+    @params: valu
     '''
     number_of_free_offered_items= number_of_items_in_inventory[offering_item] // amount_of_offer
     number_of_offered_items = number_of_items_in_inventory[offered_item]
@@ -42,7 +45,7 @@ def update_number_of_items_based_on_two_item_offer(number_of_items_in_inventory:
     else:
         return 0
     
-def update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory: dict, offering_item: str, value_of_offer: int) ->int:
+def _update_number_of_items_based_on_single_item_offer(number_of_items_in_inventory: dict, offering_item: str, value_of_offer: int) ->int:
     '''
     2F gets another F free: Offer requires 3Fs in basket. For cases such as 8Fs, customer shall pay
     for 6Fs
@@ -62,3 +65,4 @@ def update_number_of_items_based_on_single_item_offer(number_of_items_in_invento
     
     
     # return number_of_items_in_inventory["F"] - (number_of_items_in_inventory["F"] // 3)
+
