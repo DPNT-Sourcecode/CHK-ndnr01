@@ -22,9 +22,3 @@ def checkout(skus):
 # def is_illegal_argument(skus):
 #     ''' Check for illegal argument'''
 #     return skus[0].isalpha()
-
-
-
-
-
-
