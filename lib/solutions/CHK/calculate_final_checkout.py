@@ -24,21 +24,24 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
     @return: int -> final_checkout_value
     '''
     final_checkout_value = 0
+    
+    # ------------ FREE ITEMS OFFER WHEN PURCHASED SPECIFIC QUANTITIES-------------------#
     if ("E" and "B") in number_of_items_in_inventory:
         number_of_items_in_inventory["B"] = update_number_of_B_items(number_of_items_in_inventory)
         
-    if ("B" and "M") in number_of_items_in_inventory:
-        number_of_items_in_inventory["B"] = update_number_of_M_items(number_of_items_in_inventory)
+    if ("N" and "M") in number_of_items_in_inventory:
+        number_of_items_in_inventory["M"] = update_number_of_M_items(number_of_items_in_inventory)
         
     if ("R" and "Q") in number_of_items_in_inventory:
-        number_of_items_in_inventory["B"] = update_number_of_Q_items(number_of_items_in_inventory)
+        number_of_items_in_inventory["Q"] = update_number_of_Q_items(number_of_items_in_inventory)
         
-
     if number_of_items_in_inventory["F"] >=3:
         number_of_items_in_inventory["F"] = update_number_of_F_items(number_of_items_in_inventory)
 
+    if number_of_items_in_inventory["U"] >=4:
+        number_of_items_in_inventory["U"] = update_number_of_U_items(number_of_items_in_inventory)
 
-    # ------------ SAVINGS OFFER WHEN 
+    # ------------ SAVINGS OFFER WHEN PURCHASED ITEMS IN BULK-------------------#
     for item in number_of_items_in_inventory:    
         if item in price_of_items:
             if item == "A": # Special Offer A
@@ -58,4 +61,5 @@ def calculate_final_checkout_value(number_of_items_in_inventory: dict,
             else:
                 final_checkout_value = final_checkout_value + number_of_items_in_inventory[item]*price_of_items[item]
     return final_checkout_value
+
 
