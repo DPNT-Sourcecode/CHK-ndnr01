@@ -99,11 +99,12 @@ def update_number_of_B_items(number_of_items_in_inventory: dict) -> int:
 def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
     '''
     2F gets another F free: Offer requires 3Fs in basket. On that basis, I am making an assumption
-    that F needs to be in triplets for this offer to be valid.
-    If there are 2/4 Fs then offer not applied and you just pay the usual price
+    that F needs to be in triplets for this offer to be valid. If there are 2/4 Fs then offer not applied and you just pay the usual price
     '''
-    if number_of_items_in_inventory["F"] >=3:
-        
+    number_of_F_items = number_of_items_in_inventory["F"]
+    if number_of_F_items >= 3:
+        return number_of_F_items - (number_of_F_items // 3)
+
         
         
     
@@ -115,4 +116,5 @@ def update_number_of_F_items(number_of_items_in_inventory: dict) ->int:
 1b. Allows to write better unit tests
 2. Extract the common functionality i.e. // and % into separate function as repeated
 '''
+
 
