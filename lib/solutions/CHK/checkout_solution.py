@@ -2,7 +2,7 @@ from collections import Counter
 
 # noinspection PyUnusedLocal
 # skus = unicode string
-def checkout(skus):
+def checkout(skus: str) -> int:
     '''
     skus: String of items 
     @return: Total checkout value
@@ -22,7 +22,11 @@ def checkout(skus):
 #     ''' Check for illegal argument'''
 #     return skus[0].isalpha()
 
-def calculate_offers
+def calculate_final_checkout_value(number_of_items_in_inventory: dict) -> int:
+    for item in number_of_items_in_inventory:
+        
+    
+
 
 
 
